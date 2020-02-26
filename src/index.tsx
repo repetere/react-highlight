@@ -2,6 +2,7 @@ import hljs from 'highlight.js';
 import React from 'react';
 
 class Highlight extends React.Component {
+    //@ts-ignore
     constructor(props) {
       super(props)
       this.setEl = this.setEl.bind(this)
@@ -15,6 +16,7 @@ class Highlight extends React.Component {
     }
 
     highlightCode() {
+        //@ts-ignore
         const nodes = this.el.querySelectorAll('pre code');
 
         for (let i = 0; i < nodes.length; i++) {
@@ -22,15 +24,19 @@ class Highlight extends React.Component {
         }
     }
 
+    //@ts-ignore
     setEl(el) {
+        //@ts-ignore
         this.el = el;
     };
 
     render() {
+        //@ts-ignore
         const {children, className, element: Element, innerHTML} = this.props;
         const props = { ref: this.setEl, className };
 
         if (innerHTML) {
+            //@ts-ignore
             props.dangerouslySetInnerHTML = { __html: children };
             if (Element) {
                 return <Element {...props} />;
@@ -45,6 +51,7 @@ class Highlight extends React.Component {
     }
 }
 
+//@ts-ignore
 Highlight.defaultProps = {
     innerHTML: false,
     className: null,
